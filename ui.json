@@ -1,0 +1,257 @@
+{
+  "designSystem": {
+    "name": "Modern SaaS Landing Page Design System",
+    "version": "1.0.0",
+    "description": "A contemporary dark-themed design system for SaaS tools with gradient accents and clean typography",
+    "colorPalette": {
+      "primary": {
+        "background": "#1a1a2e",
+        "surface": "#16213e",
+        "text": "#ffffff",
+        "textSecondary": "#a0a0a0",
+        "accent": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "accentAlt": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        "highlight": "#ff6b6b"
+      },
+      "semantic": {
+        "success": "#4ecdc4",
+        "warning": "#ffe66d",
+        "error": "#ff6b6b",
+        "info": "#4dabf7"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "display": "Inter, sans-serif"
+      },
+      "scale": {
+        "hero": {
+          "fontSize": "4rem",
+          "fontWeight": "700",
+          "lineHeight": "1.1",
+          "letterSpacing": "-0.02em"
+        },
+        "h1": {
+          "fontSize": "3rem",
+          "fontWeight": "600",
+          "lineHeight": "1.2"
+        },
+        "h2": {
+          "fontSize": "2rem",
+          "fontWeight": "600",
+          "lineHeight": "1.3"
+        },
+        "body": {
+          "fontSize": "1rem",
+          "fontWeight": "400",
+          "lineHeight": "1.6"
+        },
+        "caption": {
+          "fontSize": "0.875rem",
+          "fontWeight": "400",
+          "lineHeight": "1.5"
+        }
+      }
+    },
+    "layout": {
+      "maxWidth": "1200px",
+      "containerPadding": "2rem",
+      "sectionSpacing": "8rem",
+      "componentSpacing": "2rem",
+      "grid": {
+        "columns": 12,
+        "gutter": "2rem"
+      }
+    },
+    "components": {
+      "header": {
+        "structure": "navbar with logo left, navigation right",
+        "height": "80px",
+        "backgroundColor": "transparent",
+        "position": "fixed",
+        "blur": true,
+        "logoStyle": {
+          "display": "text + icon",
+          "fontSize": "1.25rem",
+          "fontWeight": "600"
+        }
+      },
+      "heroSection": {
+        "layout": "centered",
+        "textAlignment": "center",
+        "maxWidth": "800px",
+        "spacing": "3rem",
+        "structure": [
+          "hero headline",
+          "gradient subtitle",
+          "description text",
+          "primary CTA",
+          "supporting text"
+        ],
+        "gradientText": {
+          "applies": [
+            "main keywords",
+            "brand terms"
+          ],
+          "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        }
+      },
+      "inputGroup": {
+        "layout": "horizontal",
+        "structure": "input field + CTA button",
+        "spacing": "0.5rem",
+        "inputField": {
+          "borderRadius": "12px",
+          "border": "2px solid rgba(255,255,255,0.1)",
+          "backgroundColor": "rgba(255,255,255,0.05)",
+          "padding": "1rem 1.5rem",
+          "fontSize": "1rem",
+          "placeholder": "rgba(255,255,255,0.5)"
+        },
+        "button": {
+          "borderRadius": "12px",
+          "background": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+          "padding": "1rem 2rem",
+          "fontSize": "1rem",
+          "fontWeight": "600",
+          "border": "none",
+          "cursor": "pointer"
+        }
+      },
+      "card": {
+        "borderRadius": "16px",
+        "backgroundColor": "rgba(255,255,255,0.05)",
+        "border": "1px solid rgba(255,255,255,0.1)",
+        "padding": "2rem",
+        "backdropFilter": "blur(10px)",
+        "boxShadow": "0 8px 32px rgba(0,0,0,0.2)"
+      },
+      "button": {
+        "variants": {
+          "primary": {
+            "background": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            "color": "#ffffff",
+            "borderRadius": "12px",
+            "padding": "1rem 2rem",
+            "fontWeight": "600",
+            "border": "none",
+            "transition": "all 0.3s ease"
+          },
+          "secondary": {
+            "background": "transparent",
+            "color": "#ffffff",
+            "border": "2px solid rgba(255,255,255,0.2)",
+            "borderRadius": "12px",
+            "padding": "1rem 2rem",
+            "fontWeight": "600"
+          }
+        }
+      }
+    },
+    "effects": {
+      "glassmorphism": {
+        "backgroundColor": "rgba(255,255,255,0.05)",
+        "backdropFilter": "blur(10px)",
+        "border": "1px solid rgba(255,255,255,0.1)"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "accent": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        "background": "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)"
+      },
+      "shadows": {
+        "card": "0 8px 32px rgba(0,0,0,0.2)",
+        "button": "0 4px 16px rgba(240,147,251,0.3)",
+        "input": "inset 0 1px 3px rgba(0,0,0,0.2)"
+      },
+      "animations": {
+        "hover": {
+          "transform": "translateY(-2px)",
+          "transition": "all 0.3s ease"
+        },
+        "focus": {
+          "outline": "2px solid #667eea",
+          "outlineOffset": "2px"
+        }
+      }
+    },
+    "patterns": {
+      "sectionStructure": [
+        "heading (h2)",
+        "description paragraph",
+        "visual content/form",
+        "supporting text"
+      ],
+      "contentFlow": "top-to-bottom, center-aligned",
+      "visualHierarchy": [
+        "large hero text with gradient keywords",
+        "descriptive subtitle",
+        "prominent CTA",
+        "supporting microcopy"
+      ],
+      "interactionStates": {
+        "hover": {
+          "buttons": "lift effect + shadow enhancement",
+          "inputs": "border color change",
+          "cards": "subtle glow effect"
+        },
+        "active": {
+          "buttons": "slight scale down",
+          "inputs": "focus ring"
+        }
+      }
+    },
+    "spacing": {
+      "scale": "4px base unit",
+      "values": {
+        "xs": "0.25rem",
+        "sm": "0.5rem",
+        "md": "1rem",
+        "lg": "1.5rem",
+        "xl": "2rem",
+        "2xl": "3rem",
+        "3xl": "4rem",
+        "4xl": "6rem",
+        "5xl": "8rem"
+      }
+    },
+    "designPrinciples": {
+      "visual": [
+        "Dark theme as primary",
+        "Gradient accents for key elements",
+        "Glass morphism for depth",
+        "Generous white space",
+        "Subtle transparency effects"
+      ],
+      "interaction": [
+        "Clear visual feedback on hover/focus",
+        "Smooth transitions (0.3s ease)",
+        "Accessible color contrast",
+        "Intuitive information hierarchy"
+      ],
+      "content": [
+        "Benefit-focused headlines",
+        "Clear value propositions",
+        "Minimal cognitive load",
+        "Progressive disclosure"
+      ]
+    },
+    "responsiveness": {
+      "breakpoints": {
+        "mobile": "320px",
+        "tablet": "768px",
+        "desktop": "1024px",
+        "wide": "1440px"
+      },
+      "adaptations": {
+        "mobile": {
+          "typography": "scale down by 0.8x",
+          "spacing": "reduce by 50%",
+          "layout": "single column",
+          "input": "stack vertically"
+        }
+      }
+    }
+  }
+}
