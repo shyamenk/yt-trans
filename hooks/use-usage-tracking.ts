@@ -1,4 +1,4 @@
- // Custom hook for usage tracking functionality
+// Custom hook for usage tracking functionality
 // This will be implemented in Issue #9 logic
 
 import { useState, useEffect } from 'react';
@@ -7,8 +7,9 @@ import { APP_CONFIG } from '@/lib/constants';
 
 export function useUsageTracking() {
   const [usage, setUsage] = useState<UsageData>({
-    count: 0,
-    limit: APP_CONFIG.FREE_ANALYSIS_LIMIT,
+    analysesUsed: 0,
+    analysesRemaining: APP_CONFIG.FREE_ANALYSIS_LIMIT,
+    resetDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // 24 hours from now
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,13 +25,14 @@ export function useUsageTracking() {
   const incrementUsage = () => {
     const newUsage = {
       ...usage,
-      count: Math.min(usage.count + 1, usage.limit),
+      analysesUsed: Math.min(usage.analysesUsed + 1, APP_CONFIG.FREE_ANALYSIS_LIMIT),
+      analysesRemaining: Math.max(usage.analysesRemaining - 1, 0),
     };
     setUsage(newUsage);
     localStorage.setItem('usage_data', JSON.stringify(newUsage));
   };
 
-  const hasUsageRemaining = usage.count < usage.limit;
+  const hasUsageRemaining = usage.analysesRemaining > 0;
 
   return {
     usage,

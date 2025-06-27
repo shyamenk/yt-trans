@@ -4,9 +4,40 @@
 export interface YouTubeVideo {
   id: string;
   title: string;
+  channel: string;
   duration: number;
-  transcript?: string;
-  thumbnail?: string;
+  views: number;
+  uploadDate: string;
+  description: string;
+  thumbnailUrl: string;
+  url: string;
+}
+
+export interface YouTubeTranscript {
+  text: string;
+  start: number;
+  duration: number;
+}
+
+export interface YouTubeAnalysisResult {
+  summary: string;
+  keyInsights: string[];
+  actionableSteps: string[];
+  examples: Array<{
+    title: string;
+    description: string;
+    timestamp?: number;
+  }>;
+  tags: string[];
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  estimatedReadTime: number;
+}
+
+export interface YouTubeValidationResult {
+  isValid: boolean;
+  videoId: string | null;
+  error: string | null;
+  normalizedUrl: string | null;
 }
 
 export interface AnalysisResult {
@@ -18,9 +49,10 @@ export interface AnalysisResult {
 }
 
 export interface UsageData {
-  count: number;
-  limit: number;
-  resetDate?: Date;
+  analysesUsed: number;
+  analysesRemaining: number;
+  resetDate: string;
+  lastAnalysisDate?: string;
 }
 
 export interface APIResponse<T> {
@@ -28,6 +60,14 @@ export interface APIResponse<T> {
   data?: T;
   error?: string;
   message?: string;
+}
+
+export interface AnalysisApiResponse extends APIResponse<YouTubeAnalysisResult> {
+  usage: {
+    analysesUsed: number;
+    analysesRemaining: number;
+    resetDate: string;
+  };
 }
 
 // Form types
@@ -39,4 +79,17 @@ export interface YouTubeUrlFormData {
 export interface ComponentProps {
   className?: string;
   children?: React.ReactNode;
+}
+
+export interface FormState {
+  isLoading: boolean;
+  error: string | null;
+  success: boolean;
+}
+
+export interface AnalysisRequest {
+  url: string;
+  videoId: string;
+  analysisType?: 'summary' | 'detailed' | 'insights';
+  includeTimestamps?: boolean;
 } 

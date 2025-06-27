@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+'use client';
+
+import { Brain, Zap, BookOpen, CheckCircle, Target, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Zap, Target, BookOpen, Sparkles, Brain, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { YouTubeUrlForm } from "@/components/forms/youtube-url-form";
 
 export default function HomePage() {
   return (
@@ -22,37 +24,30 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* YouTube URL Input Form */}
-          <div className="max-w-2xl mx-auto space-y-6">
-            <div className="flex flex-col sm:flex-row gap-4 items-center">
-              <div className="flex-1 w-full">
-                <Input
-                  type="url"
-                  placeholder="Paste YouTube URL here..."
-                  className="text-base h-12 px-4 bg-input border border-border rounded-lg shadow-sm text-foreground placeholder:text-muted-foreground"
-                />
-              </div>
-              <Button
-                size="lg"
-                className="w-full sm:w-auto px-8 h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-lg shadow-md transition-all duration-200 hover:shadow-lg"
-              >
-                Analyze Video
-              </Button>
-            </div>
-
-            {/* Usage Counter Badge */}
-            <div className="flex justify-center">
-              <Badge className="px-4 py-2 bg-secondary/20 border border-border rounded-full text-secondary-foreground">
-                <Sparkles className="w-4 h-4 mr-2" />
-                2 free analyses remaining
-              </Badge>
-            </div>
-
-            {/* Supporting Text */}
-            <p className="text-muted-foreground text-sm">
-              Get AI-powered summaries, key insights, and actionable takeaways in seconds
-            </p>
+          {/* YouTube URL Input */}
+          <div className="w-full max-w-md mx-auto space-y-4">
+            <YouTubeUrlForm
+              onSubmit={(data) => {
+                // TODO: Implement analysis logic in Issue #9
+                console.log('Analysis requested for:', data);
+                alert(`Analysis requested for video: ${data.videoId}`);
+              }}
+              isLoading={false}
+            />
           </div>
+
+          {/* Usage Counter Badge */}
+          <div className="flex justify-center">
+            <Badge className="px-4 py-2 bg-secondary/20 border border-border rounded-full text-secondary-foreground">
+              <Sparkles className="w-4 h-4 mr-2" />
+              2 free analyses remaining
+            </Badge>
+          </div>
+
+          {/* Supporting Text */}
+          <p className="text-muted-foreground text-sm">
+            Get AI-powered summaries, key insights, and actionable takeaways in seconds
+          </p>
         </div>
       </section>
 
