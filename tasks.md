@@ -81,7 +81,7 @@
   - **Deliverable**: Usage tracking UI
 
 ### 2.3 Results Display Components
-- [ ] **Task 2.3.1**: Analysis Results Cards
+- [ ] **Task 2.3.1**: Analysis Results Cards *(Issue #11 Created)*
   - Create glassmorphism result cards
   - Build key points, actionable steps, examples sections
   - Implement copy-to-clipboard functionality
@@ -89,7 +89,7 @@
   - **Dependencies**: Task 1.1.3
   - **Deliverable**: Complete results display
 
-- [ ] **Task 2.3.2**: Loading & Error States
+- [ ] **Task 2.3.2**: Loading & Error States *(Issue #12 Created)*
   - Create skeleton loading components
   - Build error display with retry functionality
   - Add smooth transitions between states
@@ -100,7 +100,7 @@
 ## Phase 3: Backend Setup & Integration (Priority: MEDIUM)
 
 ### 3.1 Database Setup
-- [ ] **Task 3.1.1**: Prisma & Neon DB Configuration
+- [ ] **Task 3.1.1**: Prisma & Neon DB Configuration *(Issue #13 Created)*
   - Setup Prisma v6 with Neon PostgreSQL
   - Create database schema from PRD
   - Setup migrations and seeding
@@ -108,7 +108,7 @@
   - **Dependencies**: Task 1.2.1
   - **Deliverable**: Working database setup
 
-- [ ] **Task 3.1.2**: Database Query Layer
+- [ ] **Task 3.1.2**: Database Query Layer *(Issue #14 Created)*
   - Create user queries (usage tracking)
   - Create analysis queries (CRUD operations)
   - Implement connection pooling
@@ -117,7 +117,7 @@
   - **Deliverable**: Database query functions
 
 ### 3.2 Authentication Setup
-- [ ] **Task 3.2.1**: NextAuth.js v5 Configuration
+- [ ] **Task 3.2.1**: NextAuth.js v5 Configuration *(Issue #15 Created)*
   - Setup Auth.js v5 with session handling
   - Configure providers (if needed)
   - Implement middleware for route protection
@@ -126,7 +126,7 @@
   - **Deliverable**: Working authentication system
 
 ### 3.3 API Routes Development
-- [ ] **Task 3.3.1**: YouTube API Integration
+- [ ] **Task 3.3.1**: YouTube API Integration *(Issue #16 Created)*
   - Create YouTube URL validation function
   - Implement video metadata extraction
   - Add transcript extraction logic
@@ -134,7 +134,7 @@
   - **Dependencies**: Task 1.2.1
   - **Deliverable**: YouTube integration functions
 
-- [ ] **Task 3.3.2**: Rate Limiting & Security
+- [ ] **Task 3.3.2**: Rate Limiting & Security *(Issue #17 Created)*
   - Implement rate limiting middleware
   - Add input validation with Zod
   - Setup error handling and logging
@@ -145,7 +145,7 @@
 ## Phase 4: AI Integration (Priority: MEDIUM)
 
 ### 4.1 AWS Bedrock Setup
-- [ ] **Task 4.1.1**: AWS Bedrock Configuration
+- [ ] **Task 4.1.1**: AWS Bedrock Configuration *(Issue #18 Created)*
   - Setup AWS SDK for Bedrock
   - Configure Claude Sonnet 4 integration
   - Implement retry logic and error handling
@@ -153,7 +153,7 @@
   - **Dependencies**: Task 1.2.1
   - **Deliverable**: Working AI integration
 
-- [ ] **Task 4.1.2**: Analysis Prompt Engineering
+- [ ] **Task 4.1.2**: Analysis Prompt Engineering *(Issue #19 Created)*
   - Create optimized prompts for Claude
   - Implement response parsing and validation
   - Add content quality checks
@@ -162,7 +162,7 @@
   - **Deliverable**: Optimized AI analysis
 
 ### 4.2 Analysis API Endpoint
-- [ ] **Task 4.2.1**: Main Analysis Route
+- [ ] **Task 4.2.1**: Main Analysis Route *(Issue #20 Created)*
   - Create `/api/analyze` POST endpoint
   - Integrate YouTube + AI + Database
   - Implement comprehensive error handling
@@ -173,7 +173,7 @@
 ## Phase 5: Frontend-Backend Integration (Priority: MEDIUM)
 
 ### 5.1 State Management
-- [ ] **Task 5.1.1**: TanStack Query Setup
+- [ ] **Task 5.1.1**: TanStack Query Setup *(Issue #21 Created)*
   - Configure TanStack Query v5
   - Create analysis mutation hooks
   - Implement caching and optimistic updates
@@ -181,7 +181,7 @@
   - **Dependencies**: Task 4.2.1
   - **Deliverable**: State management layer
 
-- [ ] **Task 5.1.2**: Form Integration
+- [ ] **Task 5.1.2**: Form Integration *(Issue #22 Created)*
   - Connect form to analysis API
   - Implement real-time validation
   - Add progress indicators
@@ -190,7 +190,7 @@
   - **Deliverable**: Working form integration
 
 ### 5.2 Results Integration
-- [ ] **Task 5.2.1**: Results Display Integration
+- [ ] **Task 5.2.1**: Results Display Integration *(Issue #23 Created)*
   - Connect API responses to UI components
   - Implement data transformation
   - Add animations for result reveal
@@ -201,7 +201,7 @@
 ## Phase 6: Testing & Quality Assurance (Priority: LOW)
 
 ### 6.1 Unit Testing
-- [ ] **Task 6.1.1**: Component Testing
+- [ ] **Task 6.1.1**: Component Testing *(Issue #24 Created)*
   - Setup Vitest and React Testing Library
   - Write tests for core components
   - Add component interaction tests
@@ -209,7 +209,7 @@
   - **Dependencies**: Phase 2 complete
   - **Deliverable**: Component test suite
 
-- [ ] **Task 6.1.2**: API Testing
+- [ ] **Task 6.1.2**: API Testing *(Issue #25 Created)*
   - Write tests for API routes
   - Mock external dependencies
   - Test error scenarios
@@ -218,7 +218,7 @@
   - **Deliverable**: API test suite
 
 ### 6.2 Integration Testing
-- [ ] **Task 6.2.1**: E2E Testing with Playwright
+- [ ] **Task 6.2.1**: E2E Testing with Playwright *(Issue #26 Created)*
   - Setup Playwright test environment
   - Write critical user journey tests
   - Add visual regression tests
@@ -229,7 +229,7 @@
 ## Phase 7: Deployment & Production (Priority: LOW)
 
 ### 7.1 Deployment Setup
-- [ ] **Task 7.1.1**: Vercel Deployment Configuration
+- [ ] **Task 7.1.1**: Vercel Deployment Configuration *(Issue #27 Created)*
   - Configure `vercel.json` from PRD
   - Setup environment variables
   - Configure build optimizations
@@ -237,7 +237,7 @@
   - **Dependencies**: Phase 5 complete
   - **Deliverable**: Production deployment
 
-- [ ] **Task 7.1.2**: Database Migration & Production Setup
+- [ ] **Task 7.1.2**: Database Migration & Production Setup *(Issue #28 Created)*
   - Setup production database
   - Run migrations on production
   - Configure monitoring and logging
@@ -246,7 +246,7 @@
   - **Deliverable**: Production-ready database
 
 ### 7.2 Performance & Monitoring
-- [ ] **Task 7.2.1**: Performance Optimization
+- [ ] **Task 7.2.1**: Performance Optimization *(Issue #29 Created)*
   - Implement bundle analysis
   - Optimize images and assets
   - Add performance monitoring
@@ -265,7 +265,7 @@
   - **Dependencies**: Task 1.1.2
   - **Deliverable**: Deployed landing page
 
-- [ ] **Task 0.2**: Setup CI/CD Pipeline
+- [ ] **Task 0.2**: Setup CI/CD Pipeline *(Issue #30 Created)*
   - Configure GitHub Actions
   - Setup automatic deployments to Vercel
   - Add basic linting and type checking
