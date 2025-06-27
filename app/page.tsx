@@ -1,5 +1,6 @@
-'use client';
-
+"use client";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import { Brain, Zap, BookOpen, CheckCircle, Target, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -10,8 +11,18 @@ import { UsageCounter } from "@/components/features/usage-counter";
 import { useUsageTracking } from "@/hooks/use-usage-tracking";
 
 export default function HomePage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const { incrementUsage, hasUsageRemaining } = useUsageTracking();
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  if (status === "loading") {
+    return <div className="text-center py-20 text-white">Loading...</div>;
+  }
+  if (!session) {
+    router.replace("/auth/signin");
+    return null;
+  }
 
   const handleAnalysisSubmit = async (data: { url: string; videoId: string; }) => {
     // Check if user has remaining analyses

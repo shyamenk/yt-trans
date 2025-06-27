@@ -51,7 +51,7 @@ export async function disconnectDatabase() {
  * Database transaction wrapper with error handling
  */
 export async function withTransaction<T>(
-  operation: (tx: typeof prisma) => Promise<T>
+  operation: (tx: Omit<typeof prisma, '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'>) => Promise<T>
 ): Promise<T> {
   try {
     return await prisma.$transaction(operation);
@@ -112,4 +112,4 @@ export async function retryDatabaseOperation<T>(
   }
   
   throw lastError!;
-} 
+}

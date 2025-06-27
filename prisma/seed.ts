@@ -6,12 +6,13 @@ async function main() {
   console.log('🌱 Starting database seeding...');
 
   // Create a test user
-  const testUser = await prisma.user.upsert({
-    where: { email: 'test@example.com' },
+ const testUser = await prisma.user.upsert({
+    where: { email: 'user@example.com' },
     update: {},
     create: {
-      email: 'test@example.com',
+      email: 'user@example.com',
       name: 'Test User',
+      password: "password", // <-- add this line
       usage: 0,
       usageResetAt: new Date(),
     },

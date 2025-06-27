@@ -29,13 +29,6 @@ const defaultConfig: DatabaseConfig = {
 let config: DatabaseConfig = { ...defaultConfig };
 let queryMetrics: QueryMetrics[] = [];
 
-// Minimal type for Prisma middleware params
-interface PrismaMiddlewareParams {
-  action: string;
-  model?: string;
-  [key: string]: unknown;
-}
-
 /**
  * Update database middleware configuration
  */
@@ -136,7 +129,8 @@ export function createInstrumentedPrismaClient() {
   const client = prisma;
 
   // Add Prisma middleware for query logging
-  client.$use(async (params: PrismaMiddlewareParams, next: (params: PrismaMiddlewareParams) => Promise<unknown>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  client.$use(async (params: any, next: (params: any) => Promise<any>) => {
     const start = Date.now();
     
     try {

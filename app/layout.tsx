@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import NextAuthSessionProvider from "./SessionProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -61,13 +62,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
-        <div className="min-h-screen bg-background flex flex-col">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <NextAuthSessionProvider>
+          <div className="min-h-screen bg-background flex flex-col">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );
