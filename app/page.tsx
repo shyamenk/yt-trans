@@ -1,12 +1,46 @@
 'use client';
 
+import { useState } from 'react';
 import { Brain, Zap, BookOpen, CheckCircle, Target, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { YouTubeUrlForm } from "@/components/forms/youtube-url-form";
+import { UsageCounter } from "@/components/features/usage-counter";
+import { useUsageTracking } from "@/hooks/use-usage-tracking";
 
 export default function HomePage() {
+  const { incrementUsage, hasUsageRemaining } = useUsageTracking();
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const handleAnalysisSubmit = async (data: { url: string; videoId: string; }) => {
+    // Check if user has remaining analyses
+    if (!hasUsageRemaining) {
+      alert('You have reached your free analysis limit. Please try again tomorrow.');
+      return;
+    }
+
+    setIsAnalyzing(true);
+
+    try {
+      // TODO: Implement actual analysis logic in next issue
+      console.log('Analysis requested for:', data);
+
+      // Simulate analysis time
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Increment usage count
+      incrementUsage();
+
+      alert(`Analysis completed for video: ${data.videoId}\n\nThis will be replaced with actual analysis results in the next issue.`);
+    } catch (error) {
+      console.error('Analysis failed:', error);
+      alert('Analysis failed. Please try again.');
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -27,21 +61,15 @@ export default function HomePage() {
           {/* YouTube URL Input */}
           <div className="w-full max-w-md mx-auto space-y-4">
             <YouTubeUrlForm
-              onSubmit={(data) => {
-                // TODO: Implement analysis logic in Issue #9
-                console.log('Analysis requested for:', data);
-                alert(`Analysis requested for video: ${data.videoId}`);
-              }}
-              isLoading={false}
+              onSubmit={handleAnalysisSubmit}
+              isLoading={isAnalyzing}
+              disabled={!hasUsageRemaining}
             />
           </div>
 
           {/* Usage Counter Badge */}
           <div className="flex justify-center">
-            <Badge className="px-4 py-2 bg-secondary/20 border border-border rounded-full text-secondary-foreground">
-              <Sparkles className="w-4 h-4 mr-2" />
-              2 free analyses remaining
-            </Badge>
+            <UsageCounter />
           </div>
 
           {/* Supporting Text */}
